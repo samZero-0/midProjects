@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="744.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="midpractice23.MidPracticeSceneController">
+   <children>
+      <Label layoutX="30.0" layoutY="24.0" prefHeight="17.0" prefWidth="123.0" text="Select Product" />
+      <Label layoutX="30.0" layoutY="66.0" prefHeight="17.0" prefWidth="123.0" text="Unit Price" />
+      <Label layoutX="30.0" layoutY="108.0" prefHeight="17.0" prefWidth="123.0" text="Quantity" />
+      <Label layoutX="30.0" layoutY="147.0" prefHeight="17.0" prefWidth="123.0" text="Predefined VAT %" />
+      <ComboBox fx:id="selectProductCombo" layoutX="172.0" layoutY="20.0" onAction="#setUnitVatOnClick" prefWidth="150.0" />
+      <ComboBox fx:id="quantityCombo" layoutX="172.0" layoutY="104.0" prefWidth="150.0" />
+      <Label fx:id="unitPriceLabel" layoutX="172.0" layoutY="65.0" prefHeight="17.0" prefWidth="150.0" style="-fx-border-color: green;" />
+      <Label fx:id="predefVatLabel" layoutX="172.0" layoutY="146.0" prefHeight="17.0" prefWidth="150.0" style="-fx-border-color: green;" />
+      <Button layoutX="421.0" layoutY="25.0" mnemonicParsing="false" onAction="#addProductOnCartOnClick" prefHeight="108.0" prefWidth="139.0" text="Add the product to cart" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="644.0" layoutY="31.0" mnemonicParsing="false" onAction="#checkoutOnClick" prefHeight="108.0" prefWidth="149.0" text="Checkout" textAlignment="CENTER">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="vatConsiderCombo" layoutX="192.0" layoutY="609.0" prefWidth="150.0" />
+      <TextField fx:id="maxUnitCostTextField" layoutX="193.0" layoutY="550.0" />
+      <Button layoutX="45.0" layoutY="655.0" mnemonicParsing="false" onAction="#showTotalVATonClick" prefHeight="60.0" prefWidth="296.0" text="Show  Total VAT amount meeting search criterion" />
+      <Label layoutX="35.0" layoutY="554.0" prefHeight="17.0" prefWidth="139.0" text="Maximum per unit cost:" />
+      <Label layoutX="35.0" layoutY="613.0" prefHeight="17.0" prefWidth="139.0" text="Select  VAT%  to consider:" />
+      <TextArea fx:id="totalVatAmountTextArea" layoutX="457.0" layoutY="562.0" prefHeight="171.0" prefWidth="344.0" style="-fx-background-color: red;" wrapText="true">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></TextArea>
+      <TableView fx:id="tableView" layoutX="12.0" layoutY="237.0" prefHeight="225.0" prefWidth="807.0">
+        <columns>
+          <TableColumn fx:id="productCol" prefWidth="168.0" text="Product" />
+          <TableColumn fx:id="unitPriceCol" prefWidth="134.0" text="Unit Price" />
+            <TableColumn fx:id="quantityCol" prefWidth="123.0" text="Quantity" />
+            <TableColumn fx:id="vatCol" prefWidth="126.0" text="VAT" />
+            <TableColumn fx:id="vatAmountColumn" prefWidth="127.0" text="VAT amount" />
+            <TableColumn fx:id="totalAmountColumn" prefWidth="128.0" text="Total Amount" />
+        </columns>
+      </TableView>
+      <Label layoutX="493.0" layoutY="471.0" prefHeight="25.0" prefWidth="89.0" text="Total Amount :  " />
+      <TextField fx:id="totAmountLabel" editable="false" layoutX="582.0" layoutY="471.0" prefHeight="25.0" prefWidth="209.0" />
+      <RadioButton fx:id="cashRB" layoutX="168.0" layoutY="193.0" mnemonicParsing="false" text="Cash">
+         <toggleGroup>
+            <ToggleGroup fx:id="pMethod" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="creditRB" layoutX="253.0" layoutY="193.0" mnemonicParsing="false" text="Credit Cart" toggleGroup="$pMethod" />
+      <Label layoutX="32.0" layoutY="193.0" prefHeight="17.0" prefWidth="104.0" text="Payment Method" />
+      <Label fx:id="paymentMethod" layoutX="493.0" layoutY="504.0" prefHeight="31.0" prefWidth="302.0" style="-fx-border-color: black; -fx-border-width: 3;" />
+      <CheckBox fx:id="cashCheckBox" layoutX="434.0" layoutY="202.0" mnemonicParsing="false" text="Taka" />
+      <CheckBox fx:id="dollarsCheckBox" layoutX="493.0" layoutY="202.0" mnemonicParsing="false" text="Dollars" />
+      <Label layoutX="375.0" layoutY="202.0" prefHeight="17.0" prefWidth="70.0" text="Currency? " />
+      <Button layoutX="17.0" layoutY="471.0" mnemonicParsing="false" onAction="#deletOnClick" prefHeight="25.0" prefWidth="149.0" text="Delete Selected Product" />
+      <Line endX="-93.0" endY="73.00001525878906" layoutX="456.0" layoutY="164.0" startX="-93.0" startY="-164.0" />
+      <Line endX="-49.0" endY="81.00001525878906" layoutX="644.0" layoutY="156.0" startX="-49.0" startY="-156.0" />
+      <Line endX="-93.0" endY="103.0" layoutX="494.0" layoutY="641.0" startX="-93.0" startY="-179.0" />
+   </children>
+</AnchorPane>
